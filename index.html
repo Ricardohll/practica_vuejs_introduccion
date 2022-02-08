@@ -7,14 +7,14 @@
         <meta name="author" content="">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 
     <body>
 
-        <h1 id="autor">Autor: TU NOMBRE AQUÍ</h1>
+        
 
         <!-- https://vuejs.org/v2/guide/index.html -->
-        <div id="app">
             <!--
                  TODO: Mostrar datos del objeto collection. Ver archivo ./js/script.js
                - Cargar la librería de VueJS y el script ./js/script.js al final de la etiqueta <body>
@@ -27,9 +27,38 @@
                    - El término <dt> será la propiedad "prompt"
                    - La definición <dd> será la propiedad "value"
             -->
+            <h1 id="autor">Autor: Ricardo Hernandez Lloret</h1>
+
+            <div id="app">
+                <div class="jumbotron">
+                    <h1 class="display-4" id="title">{{ col.collection.title }}</h1>
+                </div>
+                <h1 id="title">{{title}}</h1>
+                <div class="card-group">
+                    <div class="card" style="width: 18rem;" v-for="item in col.collection.items">
+                        <div class="card-body" v-for="peli in item.data">
+                            <dl>
+                                <dt class="card-title">
+                                    {{ peli.prompt }}
+                                </dt>
+                                <dd>
+                                    {{peli.value}}
+                                </dd>
+                            </dl>
+                        </div>
+                        <a v-bind:href="item.href" class="btn btn-primary">Ver</a>
+                    </div> 
+                </div>
+            </div>
 
         </div>
 
+        <script src="./js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
     </body>
 
 </html>
